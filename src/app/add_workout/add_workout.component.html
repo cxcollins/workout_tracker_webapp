@@ -1,0 +1,38 @@
+<div class="workout-log-container">
+    <h2>Welcome, User!</h2>
+  
+    <!-- Workout Summary -->
+    <section class="workout-summary">
+      <h3>Total Workouts: {{ workoutForm.value.sets.length }}</h3>
+      <a href="/workout-history">View Workout History</a>
+    </section>
+  
+    <!-- Workout Logging Form -->
+    <form [formGroup]="workoutForm" (ngSubmit)="submitForm()">
+      <!-- Exercise Name -->
+      <label for="exerciseName">Exercise Name:</label>
+      <input id="exerciseName" formControlName="exerciseName" placeholder="Enter exercise name" />
+  
+      <!-- Set Count -->
+      <label for="setCount">Number of Sets:</label>
+      <input id="setCount" formControlName="setCount" type="number" (change)="updateSets()" />
+  
+      <!-- Sets -->
+      <div formArrayName="sets" *ngFor="let set of sets.controls; let i = index" [formGroupName]="i">
+        <div class="set-row">
+          <label>Set {{ i + 1 }} - Weight:</label>
+          <input formControlName="weight" type="number" placeholder="Weight" />
+  
+          <label>Reps:</label>
+          <input formControlName="reps" type="number" placeholder="Reps" />
+        </div>
+      </div>
+  
+      <!-- Add Set Button -->
+      <button type="button" (click)="addSetRow()">+ Add Set</button>
+  
+      <!-- Submit Button -->
+      <button type="submit">Submit Workout</button>
+    </form>
+  </div>
+  

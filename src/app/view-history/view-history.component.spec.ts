@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddWorkoutComponent } from './add_workout.component';
+import { ViewHistoryComponent } from './view-history.component';
 
-describe('AddWorkoutComponent', () => {
-  let component: AddWorkoutComponent;
-  let fixture: ComponentFixture<AddWorkoutComponent>;
+describe('ViewHistoryComponent', () => {
+  let component: ViewHistoryComponent;
+  let fixture: ComponentFixture<ViewHistoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddWorkoutComponent]
+      imports: [ViewHistoryComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddWorkoutComponent);
+    fixture = TestBed.createComponent(ViewHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

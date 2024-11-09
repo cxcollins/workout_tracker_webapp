@@ -1,16 +1,8 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
   body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
     background-color: #f0f2f5;
   }
   
@@ -23,29 +15,29 @@
     text-align: center;
   }
   
-  .login-container h2 {
+h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: black;
   }
   
-  .login-form label {
+label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
-    color: #555;
+    color: black;
     font-size: 14px;
   }
   
-  .login-form input[type="text"] {
-    width: 100%;
+  input {
+    width: 90%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
   }
   
-  .login-form button {
+ button {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;

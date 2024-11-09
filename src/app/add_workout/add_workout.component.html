@@ -1,38 +1,26 @@
 <div class="workout-log-container">
-    <h2>Welcome, User!</h2>
-  
-    <!-- Workout Summary -->
-    <section class="workout-summary">
-      <h3>Total Workouts: {{ workoutForm.value.sets.length }}</h3>
-      <a href="/workout-history">View Workout History</a>
-    </section>
-  
-    <!-- Workout Logging Form -->
-    <form [formGroup]="workoutForm" (ngSubmit)="submitForm()">
-      <!-- Exercise Name -->
-      <label for="exerciseName">Exercise Name:</label>
-      <input id="exerciseName" formControlName="exerciseName" placeholder="Enter exercise name" />
-  
-      <!-- Set Count -->
-      <label for="setCount">Number of Sets:</label>
-      <input id="setCount" formControlName="setCount" type="number" (change)="updateSets()" />
-  
-      <!-- Sets -->
-      <div formArrayName="sets" *ngFor="let set of sets.controls; let i = index" [formGroupName]="i">
-        <div class="set-row">
-          <label>Set {{ i + 1 }} - Weight:</label>
-          <input formControlName="weight" type="number" placeholder="Weight" />
-  
-          <label>Reps:</label>
-          <input formControlName="reps" type="number" placeholder="Reps" />
-        </div>
+  <h2>Welcome!</h2>
+  <p>Enter in workout history here, which will then save to your browser. This will persist across sessions, so you don't need to worry
+    about your computer shutting off. Saving is permanent, so make sure you enter correctly! The submit button is at the bottom of the page.
+  </p>
+
+  <form (submit)="submitForm()">
+    <div *ngFor="let workout of workouts; let i = index">
+      <h4>Workout</h4>
+
+      <label for="workout-{{ i }}">Exercise name: </label>
+      <input id="workout-{{ i }}" type="text" [(ngModel)]="workouts[i].name" name="workout-{{ i }}">
+
+      <div *ngFor="let set of workouts[i].sets; let j = index">
+        <label>Weight: </label>
+        <input type="number" [(ngModel)]="workouts[i].sets[j].weight" placeholder="Weight" name="weight-{{ i }}-{{ j }}" />
+
+        <label>Number of reps: </label>
+        <input type="number" [(ngModel)]="workouts[i].sets[j].reps" placeholder="Reps" name="reps-{{ i }}-{{ j }}" />
       </div>
-  
-      <!-- Add Set Button -->
-      <button type="button" (click)="addSetRow()">+ Add Set</button>
-  
-      <!-- Submit Button -->
-      <button type="submit">Submit Workout</button>
-    </form>
-  </div>
-  
+
+    </div>
+
+    <button type="submit">Submit and view updated history!</button>
+  </form>
+</div>

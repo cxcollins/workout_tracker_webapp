@@ -1,3 +1,9 @@
 <header class="app-header">
 <h1>Weightlifting Tracker</h1>
+<div class="h3-div" *ngIf="getUsername()">
+<h3><a [routerLink]="'/add-workout'">Add new workout</a></h3>
+<h3><a [routerLink]="'/view-history'">View workout history</a></h3>
+<h3><a (click)="logout()">Logout</a></h3>
+<p></p>
+</div>
 </header>

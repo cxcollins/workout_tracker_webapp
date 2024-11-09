@@ -1,0 +1,26 @@
+<div class="workout-log-container">
+  <h2>Welcome!</h2>
+  <p>Enter in workout history here, which will then save to your browser. This will persist across sessions, so you don't need to worry
+    about your computer shutting off. Saving is permanent, so make sure you enter correctly! The submit button is at the bottom of the page.
+  </p>
+
+  <form (submit)="submitForm()">
+    <div *ngFor="let workout of workouts; let i = index">
+      <h4>Workout</h4>
+
+      <label for="workout-{{ i }}">Exercise name: </label>
+      <input id="workout-{{ i }}" type="text" [(ngModel)]="workouts[i].name" name="workout-{{ i }}">
+
+      <div *ngFor="let set of workouts[i].sets; let j = index">
+        <label>Weight: </label>
+        <input type="number" [(ngModel)]="workouts[i].sets[j].weight" placeholder="Weight" name="weight-{{ i }}-{{ j }}" />
+
+        <label>Number of reps: </label>
+        <input type="number" [(ngModel)]="workouts[i].sets[j].reps" placeholder="Reps" name="reps-{{ i }}-{{ j }}" />
+      </div>
+
+    </div>
+
+    <button type="submit">Submit and view updated history!</button>
+  </form>
+</div>

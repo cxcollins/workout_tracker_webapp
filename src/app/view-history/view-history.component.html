@@ -1,0 +1,45 @@
+<div class="workout-log-container">
+    <h2>Here is your workout history</h2>
+  
+    <div class="table-container">
+        <table>
+            <thead>
+                <th>
+                    Exercise Name
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    Number of reps
+                </th>
+            </thead>
+        </table>
+        <table *ngFor="let workout of allWorkouts; let i = index" class="table-div">
+            <tbody *ngFor="let exercise of workout; let j = index" class="table-div">
+                        <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.sets[0].weight }}</td>
+                            <td>{{ exercise.sets[0].reps }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.sets[1].weight }}</td>
+                            <td>{{ exercise.sets[1].reps }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.sets[2].weight }}</td>
+                            <td>{{ exercise.sets[2].reps }}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.sets[3].weight }}</td>
+                            <td>{{ exercise.sets[3].reps }}</td>
+                        </tr> -->
+                    </tbody>
+        </table>
+    </div>
+
+  </div>
+  

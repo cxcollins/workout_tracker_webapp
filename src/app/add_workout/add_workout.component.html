@@ -20,7 +20,9 @@
       </div>
 
     </div>
-
-    <button type="submit">Submit and view updated history!</button>
+    <div class="tooltipContainer">
+    <button type="submit" (mouseenter)="showTooltip = true" (mouseleave)="showTooltip = false">Submit and view updated history!</button>
+      <div class="tooltip" *ngIf="showTooltip">Warning! Are you sure you want to submit this workout? It is permanent!</div>
+  </div>
   </form>
 </div>

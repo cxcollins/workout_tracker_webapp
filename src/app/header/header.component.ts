@@ -18,8 +18,6 @@ export class HeaderComponent {
 
   ngDoCheck() {
     this.username = this.userService.getUsername()
-    console.log(this.username)
-    console.log(this.userService.getUsername())
   }
 
   getUsername() {

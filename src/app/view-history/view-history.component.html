@@ -1,5 +1,11 @@
 <div class="workout-log-container">
     <h2>Here is your workout history</h2>
+
+    <form>Number of exercises to view: 
+        <select [(ngModel)]="displayCount" (change)="updateWorkoutLength()" name="exerciseCount">
+            <option *ngFor="let count of dropdownOptions" [value]="count">{{ count }}</option>
+        </select>
+    </form>
   
     <div class="table-container">
         <table>
@@ -15,7 +21,7 @@
                 </th>
             </thead>
         </table>
-        <table *ngFor="let workout of allWorkouts; let i = index" class="table-div">
+        <table *ngFor="let workout of workoutsToDisplay; let i = index" class="table-div">
             <tbody *ngFor="let exercise of workout; let j = index" class="table-div">
                         <tr>
                             <td>{{ exercise.name }}</td>
@@ -32,11 +38,6 @@
                             <td>{{ exercise.sets[2].weight }}</td>
                             <td>{{ exercise.sets[2].reps }}</td>
                         </tr>
-                        <!-- <tr>
-                            <td>{{ exercise.name }}</td>
-                            <td>{{ exercise.sets[3].weight }}</td>
-                            <td>{{ exercise.sets[3].reps }}</td>
-                        </tr> -->
                     </tbody>
         </table>
     </div>

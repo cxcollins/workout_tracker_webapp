@@ -14,6 +14,8 @@ import { Router } from '@angular/router'
 })
 export class AddWorkoutComponent {
 
+  showTooltip = false
+
   constructor(private workoutService: WorkoutService, private userService: UserService, private router: Router) {}
 
   workouts = Array.from({ length: 1}, () => ({

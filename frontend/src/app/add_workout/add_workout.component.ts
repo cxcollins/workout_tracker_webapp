@@ -35,33 +35,31 @@ export class AddWorkoutComponent {
   date: Date = new Date()
 
   submitForm() {
-    this.workoutService.saveWorkout(this.userService.getUsername(), this.workouts)
-    console.log('workout saved')
 
-    console.log('workout: ', this.workouts)
+    // Filter out sets that have missing/incorrect weight or reps
+    this.workouts = this.workouts.filter(workout => ({
+      ...workout,
+      sets: workout.sets.filter(set => set.weight && set.reps)
+    }))
 
-    const obj: WorkoutResponseObject = {
-      person: this.userService.getUsername(),
-      date: this.date.toISOString().split('T')[0],
-      exercise_name: this.workouts[0].name,
-      weight: this.workouts[0].sets[0].weight,
-      reps: this.workouts[0].sets[0].reps
-    }
+    // Submit once for each set (so that the other info is stored in the table with each record)
+    this.workouts[0].sets.forEach(set => {
+      const obj: WorkoutResponseObject = {
+        person: this.userService.getUsername(),
+        date: this.date.toISOString().split('T')[0],
+        exercise_name: this.workouts[0].name,
+        weight: set.weight,
+        reps: set.reps
+      }
 
-    console.log('workout obj: ', obj)
-
-    this.http
-      .post('http://localhost:3000/save-workout', obj)
-      .subscribe((response) => {
-        console.log('Data submitted', response)
+    this.http.post('http://localhost:3000/save-workout', obj)
+      .subscribe(response => {
+        console.log(response)
       })
 
-    
-    this.workouts = Array.from({ length: 1}, () => ({
-        name: '',
-        sets: Array.from({ length: 3 },  () => ({ weight: '', reps: '' }))
-      }))
-
+    }
+  
+  )
     this.router.navigate(['/view-history'])
   }
 

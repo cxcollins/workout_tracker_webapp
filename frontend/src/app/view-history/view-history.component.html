@@ -11,6 +11,9 @@
         <table>
             <thead>
                 <th>
+                    Date
+                </th>
+                <th>
                     Exercise Name
                 </th>
                 <th>
@@ -21,22 +24,13 @@
                 </th>
             </thead>
         </table>
-        <table *ngFor="let workout of workoutsToDisplay; let i = index" class="table-div">
-            <tbody *ngFor="let exercise of workout; let j = index" class="table-div">
-                        <tr>
-                            <td>{{ exercise.name }}</td>
-                            <td>{{ exercise.sets[0].weight }}</td>
-                            <td>{{ exercise.sets[0].reps }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ exercise.name }}</td>
-                            <td>{{ exercise.sets[1].weight }}</td>
-                            <td>{{ exercise.sets[1].reps }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ exercise.name }}</td>
-                            <td>{{ exercise.sets[2].weight }}</td>
-                            <td>{{ exercise.sets[2].reps }}</td>
+            <table>
+                <tbody>
+                        <tr *ngFor="let workout of workoutsToDisplay">
+                            <td>{{ workout.date }}</td>
+                            <td>{{ workout.exercise_name }}</td>
+                            <td>{{ workout.weight }}</td>
+                            <td>{{ workout.reps }}</td>
                         </tr>
                     </tbody>
         </table>

@@ -40,6 +40,19 @@ app.get('/', async (req, res) => {
     }
   })
 
+  app.get('/lookup-user/:user', async (req, res) => {
+    const id = req.params.user
+    console.log(id)
+    try {
+        const result = await pool.query('SELECT exercise_name, TO_CHAR(date, \'YYYY-MM-DD\') AS date, weight, reps FROM angular_table WHERE person = $1', [id])
+        if(result.rows.length > 0){res.json(result.rows)}
+        else {res.status(404).send('No users found')}
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('error')
+    }
+  })
+
   app.post('/save-workout', async(req, res) => {
     const {person, date, exercise_name, weight, reps } = req.body
 

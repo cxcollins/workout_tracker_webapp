@@ -42,3 +42,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Unnecessary percentile microservice files
+/percentiles_microservice/.ipynb_checkpoints
+/percentiles_microservice/openpowerlifting-2024-11-30-a70793a3.csv

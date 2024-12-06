@@ -30,3 +30,7 @@ h1 {
 a:hover {
     cursor: pointer;
 }
+
+h3 {
+    text-align: center;
+}

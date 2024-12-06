@@ -1,4 +1,4 @@
-<div class="workout-log-container">
+<div class="lookup-standard-container">
     <h2>Lookup normalized data</h2>
 
     <p>This data comes from Science Direct, an open source repository of millions of results 
@@ -13,9 +13,9 @@
 
     <form (ngSubmit)="onSubmit()">
         <label for="sex">Sex</label>
-        <select id="sex">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
+        <select id="sex" [(ngModel)]="sex" name="sex">
+            <option [ngValue]="M">Male</option>
+            <option [ngValue]="F">Female</option>
         </select>
         <label for="weight">Weight
             <input type="number" id="weight" name="weight" [(ngModel)]="weight" required/>
@@ -23,6 +23,7 @@
         <label for="age">Age
             <input type="number" id="number" name="number" [(ngModel)]="age" required />
         </label>
+        <button for="submit">Submit</button>
     </form>
     <div class="table-container">
         <table>
@@ -46,14 +47,14 @@
                     90th percentile
                 </th>
             </thead>
-            <div *ngIf="badSearchFlag; else showTable">
+            <div *ngIf="badDataFlag; else showTable">
                 <h4>No data found for these parameters, please try a different search.</h4>
             </div>
             <ng-template #showTable>
                 <tbody>
-                    <tr *ngFor="let workout of workoutStandards">
-                        <td>{{ workout.exercise_name }}</td>
-                        <td>{{ workout[0.1] }}</td>÷÷
+                    <tr *ngFor="let workout of workouts; let i = index">
+                        <td>{{ exercise_names[i] }}</td>
+                        <td>{{ workout[0.1] }}</td>
                         <td>{{ workout[0.25] }}</td>
                         <td>{{ workout[0.5] }}</td>
                         <td>{{ workout[0.75] }}</td>

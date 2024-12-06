@@ -1,0 +1,11 @@
+.quote-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+h2 {
+    text-align: center;
+  }

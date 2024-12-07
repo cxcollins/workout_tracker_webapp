@@ -1,0 +1,67 @@
+<div class="workout-log-container">
+    <h2>View average and trends within your workout history</h2>
+
+    <form (submit)="onSubmit()">
+        <label for="date">Date:
+            <input type="date" id="date" name="date" [(ngModel)]="date"/>
+        </label>
+        <label for="exerciseName">Exercise name:
+            <input type="text" id="exerciseName" name="exerciseName" [(ngModel)]="exerciseName" required/>
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+  
+    <div class="table-container">
+        <table>
+            <div *ngIf="dateSelected; else noDate">
+            <thead>
+                <th>
+                    Exercise Name
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Average weight per set
+                </th>
+                <th>
+                    Average reps per set
+                </th>
+                <th>
+                    Number of sets performed
+                </th>
+            </thead>
+        </div>
+        <ng-template #noDate>
+                <thead>
+                    <th>
+                        Exercise Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Average change in weight over time
+                    </th>
+                    <th>
+                        Average change in reps over time
+                    </th>
+                    <th>
+                        Average change in sets over time
+                    </th>
+                </thead>
+            </ng-template>
+                <tbody>
+                        <tr>
+                            <td>{{ exerciseName }}</td>
+                            <td>{{ date }}</td>
+                            <td>{{ workoutStats[0] }}</td>
+                            <td>{{ workoutStats[0] }}</td>
+                            <td>{{ workoutStats[0] }}</td>
+                        </tr>
+                    </tbody>
+        </table>
+    </div>
+
+  </div>
+  

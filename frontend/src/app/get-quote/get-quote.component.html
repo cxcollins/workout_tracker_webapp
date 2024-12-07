@@ -3,12 +3,13 @@
   
     <form (ngSubmit)="onSubmit()">
     <p>Click the button to generate a random motivational quote
-        to power you through your next workout
+        to power you through your next workout. 
     <button type="submit">Generate</button></p>
     </form>
 
-    <p>{{ quote }}</p>
-
+    <div class="quote-text-container">
+        <p class="quote-text">{{ quote }}</p>
+    </div>
 
   </div>
   

@@ -1,5 +1,5 @@
 .quote-container {
-    max-width: 500px;
+    max-width: 800px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -9,3 +9,18 @@
 h2 {
     text-align: center;
   }
+
+.quote-text-container {
+    margin: 20px 0px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid darkgreen;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+.quote-text {
+    font-size: 1.4rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+}

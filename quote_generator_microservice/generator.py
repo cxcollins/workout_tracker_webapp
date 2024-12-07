@@ -41,5 +41,4 @@ def return_quote():
 
 
 if __name__ == '__main__':
-    check()
     app.run(port=5001)

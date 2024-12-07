@@ -18,19 +18,13 @@ export class GetQuoteComponent {
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    // this.http
-    //   .get<string>('http://localhost:5001/get-quote')
-    //   .subscribe(
-    //     (quote) => { this.quote = quote }
-    //   )
-
     fetch('http://localhost:5001/get-quote')
-  .then(response => response.text())
-  .then(quote => {
-    console.log('Quote received:', quote);
-    this.quote = quote
-  })
-  .catch(error => console.error('Error:', error));
+      .then(response => response.text())
+      .then(quote => {
+      console.log('Quote received:', quote);
+      this.quote = quote
+      })
+      .catch(error => console.error('Error:', error));
 
   }
 

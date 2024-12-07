@@ -40,6 +40,32 @@ app.get('/', async (req, res) => {
     }
   })
 
+  app.get('/:user/:exercise', async (req, res) => {
+    const id = req.params.user
+    const exercise = req.params.exercise
+
+    try {
+        const result = await pool.query('SELECT exercise_name, TO_CHAR(date, \'YYYY-MM-DD\') AS date, weight, reps FROM angular_table WHERE person = $1 AND exercise_name = $2', [id, exercise])
+        res.json(result.rows)
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('error')
+    }
+  })
+
+  app.get('/:user/:exercise/date', async (req, res) => {
+    const id = req.params.user
+    const exercise = req.params.exercise
+    const date = req.params.date
+    try {
+        const result = await pool.query('SELECT exercise_name, TO_CHAR(date, \'YYYY-MM-DD\') AS date, weight, reps FROM angular_table WHERE person = $1 AND TO_CHAR(date, \'YYYY-MM-DD\') = $3 AND exercise_name = $2', [id, exercise, date])
+        res.json(result.rows)
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('error')
+    }
+  })
+
   app.get('/lookup-user/:user', async (req, res) => {
     const id = req.params.user
     console.log(id)

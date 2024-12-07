@@ -23,6 +23,9 @@ export class ViewHistoryComponent {
   constructor(private workoutService: WorkoutService, private userService: UserService, private http: HttpClient) {}
 
   ngOnInit() {
+    setTimeout(() => {
+      console.log('Waiting one second so that db has time to process new workout'), 2000
+    })
     this.http
       .get<any[]>(`http://localhost:3000/${this.userService.getUsername()}`)
       .subscribe(
@@ -37,7 +40,7 @@ export class ViewHistoryComponent {
   }
 
   updateWorkoutLength() {
-    this.workoutsToDisplay = this.allWorkouts.slice(0, this.displayCount)
+    this.workoutsToDisplay = this.allWorkouts.slice(0, this.displayCount + 1)
   }
 
 }

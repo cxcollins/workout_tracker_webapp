@@ -53,7 +53,7 @@ app.get('/', async (req, res) => {
     }
   })
 
-  app.get('/:user/:exercise/date', async (req, res) => {
+  app.get('/:user/:exercise/:date', async (req, res) => {
     const id = req.params.user
     const exercise = req.params.exercise
     const date = req.params.date
@@ -87,6 +87,7 @@ app.get('/', async (req, res) => {
 
     console.log({person, date, exercise_name, weight, weightInt, reps, repsInt})
 
+    if(weightInt > 0 && repsInt > 0) {
     try {
         const result = await pool.query(
             'INSERT INTO angular_table (person, date, exercise_name, weight, reps) VALUES ($1, $2, $3, $4, $5) RETURNING *',
@@ -98,7 +99,11 @@ app.get('/', async (req, res) => {
         console.error(err)
         res.status(500).send('Error saving workout')
      }
-  })
+  }
+  else {
+    res.status(204)
+  }
+})
   
   app.listen(port, () => {
     console.log(`Server running on port ${port}`);

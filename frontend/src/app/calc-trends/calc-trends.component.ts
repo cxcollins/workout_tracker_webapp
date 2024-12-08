@@ -119,6 +119,7 @@ export class CalcTrendsComponent {
       )
         .subscribe( sets => {
           this.workoutStats.push(sets)
+          this.workoutStats.reverse()
           console.log(this.workoutStats)
         },
       error => {

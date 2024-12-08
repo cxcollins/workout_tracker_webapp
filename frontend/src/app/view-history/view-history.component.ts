@@ -24,7 +24,7 @@ export class ViewHistoryComponent {
 
   ngOnInit() {
     setTimeout(() => {
-      console.log('Waiting one second so that db has time to process new workout'), 2000
+      console.log('Waiting one second so that db has time to process new workout'), 4000
     })
     this.http
       .get<any[]>(`http://localhost:3000/${this.userService.getUsername()}`)

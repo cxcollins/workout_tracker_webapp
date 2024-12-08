@@ -1,11 +1,15 @@
 .trend-container {
-    max-width: 500px;
+    max-width: 700px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
   }
   
+p {
+    text-align: center;
+}
+
 h2 {
     text-align: center;
   }
@@ -14,6 +18,11 @@ table {
     width: 100%;
     margin: 20px 0;
     table-layout: fixed;
+}
+
+form {
+    width: 450px;
+    margin: auto;
 }
 
 th {

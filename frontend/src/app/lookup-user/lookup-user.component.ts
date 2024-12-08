@@ -28,9 +28,10 @@ export class LookupUserComponent {
 
   onSubmit() {
     this.http
-    .get<any[]>(`http://localhost:3000/lookup-user/${this.username}`)
+    .get<any[]>(`http://localhost:3000/${this.username}`)
     .subscribe(
       (data) => {
+        console.log(data)
         this.badSearchFlag = false
         console.log(data)
         this.allWorkouts = data

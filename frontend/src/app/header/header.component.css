@@ -18,13 +18,15 @@ h1 {
 }
 
 .h3-div a {
-    margin: 20px;
+    margin: 0px 7px;
     color: white;
     text-decoration: none;
+    text-align: center;
+    display: inline-block;
 }
 
 .h3-div h3 {
-    border: 2px solid darkgreen;
+    border: 2px solid white;
 }
 
 a:hover {

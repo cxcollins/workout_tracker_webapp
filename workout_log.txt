@@ -1,0 +1,15 @@
+
+Log 12-06-24 03:18 PM:
+{"name": "bench", "sets": [{"reps": 10, "weight": 200}]}
+Average set weight for bench = 200.0
+Average rep weight for bench = 20.0
+Average reps for bench = 10.0
+Average sets = 1.0
+
+Log 12-06-24 03:18 PM:
+{"name": "bench", "sets": [{"reps": 10, "weight": 200}]}
+{"name": "bench", "sets": [{"reps": 15, "weight": 100}]}
+Average set weight for bench = 150.0
+Average rep weight for bench = 12.0
+Average reps for bench = 12.5
+Average sets = 1.0

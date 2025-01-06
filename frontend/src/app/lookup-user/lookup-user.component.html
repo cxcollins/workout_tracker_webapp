@@ -1,0 +1,53 @@
+<div class="workout-log-container">
+    <h2>Lookup another user</h2>
+
+    <form (ngSubmit)="onSubmit()">
+        <label for="userLookup">Whose workout history would you like to see?</label>
+        <input type="text" id="userLookup" name="userLookup" [(ngModel)]="username" required/>
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+
+    <form>Number of exercises to view: 
+        <select [(ngModel)]="displayCount" (change)="updateWorkoutLength()" name="exerciseCount">
+            <option *ngFor="let count of dropdownOptions" [value]="count">{{ count }}</option>
+        </select>
+    </form>
+  
+    <div class="table-container">
+        <table>
+            <thead>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Exercise Name
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    Number of reps
+                </th>
+            </thead>
+        </table>
+        <div *ngIf="badSearchFlag; else showTable">
+            <h4>User not found, please try searching again!</h4>
+        </div>
+            <ng-template #showTable>
+            <table>
+                <tbody>
+                    <tr *ngFor="let workout of workoutsToDisplay">
+                        <td>{{ workout.date }}</td>
+                        <td>{{ workout.exercise_name }}</td>
+                        <td>{{ workout.weight }}</td>
+                        <td>{{ workout.reps }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-template>
+    </div>
+
+  </div>
+  

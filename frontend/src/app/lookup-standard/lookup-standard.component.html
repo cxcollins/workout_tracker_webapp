@@ -1,0 +1,69 @@
+<div class="lookup-standard-container">
+    <h2>Lookup normalized data</h2>
+
+    <p>This data comes from Science Direct, an open source repository of millions of results 
+        from sanctioned weight lifting meets around the world. Data has been filtered to only include
+        events that drug test, and excludes lifters that use equipment like straps or knee wraps.
+    </p>
+
+    <p>
+        You can use this resource to see where you fall amongst trained lifters internationally, by entering 
+        your sex, age, and weight.
+    </p>
+
+    <form (ngSubmit)="onSubmit()">
+        <label for="sex">Sex</label>
+        <select id="sex" [(ngModel)]="sex" name="sex">
+            <option [ngValue]="M">Male</option>
+            <option [ngValue]="F">Female</option>
+        </select>
+        <label for="weight">Weight
+            <input type="number" id="weight" name="weight" [(ngModel)]="weight" required/>
+        </label>
+        <label for="age">Age
+            <input type="number" id="number" name="number" [(ngModel)]="age" required />
+        </label>
+        <button for="submit">Submit</button>
+    </form>
+    <div class="table-container">
+        <table>
+            <thead>
+                <th>
+                    Exercise Name
+                </th>
+                <th>
+                    10th percentile
+                </th>
+                <th>
+                    25th percentile
+                </th>
+                <th>
+                    50th percentile
+                </th>
+                <th>
+                    75th percentile
+                </th>
+                <th>
+                    90th percentile
+                </th>
+            </thead>
+            <div *ngIf="badDataFlag; else showTable">
+                <h4>No data found for these parameters, please try a different search.</h4>
+            </div>
+            <ng-template #showTable>
+                <tbody>
+                    <tr *ngFor="let workout of workouts; let i = index">
+                        <td>{{ exercise_names[i] }}</td>
+                        <td>{{ workout[0.1] }}</td>
+                        <td>{{ workout[0.25] }}</td>
+                        <td>{{ workout[0.5] }}</td>
+                        <td>{{ workout[0.75] }}</td>
+                        <td>{{ workout[0.9] }}</td>
+                    </tr>
+                </tbody>
+            </ng-template>
+        </table>
+    </div>
+
+  </div>
+  

@@ -1,0 +1,39 @@
+.lookup-standard-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+h2 {
+    text-align: center;
+  }
+  
+table {
+    width: 100%;
+    margin: 20px 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: darkgreen;
+    color: white;
+}
+
+td {
+    text-align: left;
+    padding: 4px 15px;
+    margin: auto;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr {
+    width: 100%;
+}

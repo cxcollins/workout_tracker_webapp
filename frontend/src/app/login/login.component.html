@@ -1,0 +1,11 @@
+<body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <p>Enter your name so that your workout history can be pulled up. This service supports multiple accounts, as long as the name is different.</p>
+      <form class="login-form" (ngSubmit)="onSubmit()">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required [(ngModel)]="username">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>

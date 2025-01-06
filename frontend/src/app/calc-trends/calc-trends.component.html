@@ -1,0 +1,69 @@
+<div class="trend-container">
+    <h2>View average and trends within your workout history</h2>
+    <p>If you want to view averages for a particular workout across sets, input a date into the data field. Otherwise, leave it blank, 
+        and the average change across workouts will be calculated (on a per set basis).</p>
+
+    <form (submit)="onSubmit()">
+        <label for="date">Date:
+            <input type="date" id="date" name="date" [(ngModel)]="date"/>
+        </label>
+        <label for="exerciseName">  Exercise name:
+            <input type="text" id="exerciseName" name="exerciseName" [(ngModel)]="exerciseName" required/>
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+  
+    <div class="table-container">
+        <table>
+            <!-- <div > -->
+            <thead *ngIf="dateSelected; else noDate">
+                <th>
+                    Exercise Name
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Average weight per set
+                </th>
+                <th>
+                    Average reps per set
+                </th>
+                <th>
+                    Number of sets performed
+                </th>
+            </thead>
+        <!-- </div> -->
+        <ng-template #noDate>
+                <thead>
+                    <th>
+                        Exercise Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Average change in weight over time
+                    </th>
+                    <th>
+                        Average change in reps over time
+                    </th>
+                    <th>
+                        Average change in sets over time
+                    </th>
+                </thead>
+            </ng-template>
+                <tbody>
+                        <tr>
+                            <td>{{ exerciseName }}</td>
+                            <td>{{ date }}</td>
+                            <td>{{ workoutStats[2] }}</td>
+                            <td>{{ workoutStats[1] }}</td>
+                            <td>{{ workoutStats[0] }}</td>
+                        </tr>
+                    </tbody>
+        </table>
+    </div>
+
+  </div>
+  

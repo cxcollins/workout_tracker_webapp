@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend service to handle requests from workout web app",
+  "main": "app.mjs",
+  "scripts": {
+    "test": "test",
+    "run": "nodemon app.mjs",
+    "start": "node app.mjs"
+  },
+  "author": "Connor Collins",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "pg": "^8.13.1"
+  }
+}
